@@ -1,0 +1,25 @@
+server:
+  port: 64412
+
+spring:
+  config:
+    import:
+      - classpath:/yaml/application-local.yml
+      - classpath:/yaml/application-dev.yml
+  profiles:
+    active: local
+  application:
+    name: user-service
+
+eureka:
+  instance:
+    instance-id: user-instance
+
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+
+#  profiles:
+#    group:
+#      logging: dev, log # ????: ??1, ??2, ...
+# java -jar myApp.jar --spring.profiles.active=??

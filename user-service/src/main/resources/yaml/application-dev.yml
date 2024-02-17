@@ -1,0 +1,22 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql-service:3306/moview_database?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
+    username: root
+    password: ${MYSQL_PASSWORD}
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update # DDL (create/update/create-drop/validate/none)
+      properties:
+        hibernate:
+          format_sql: true
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/

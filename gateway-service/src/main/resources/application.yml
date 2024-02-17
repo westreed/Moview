@@ -1,0 +1,30 @@
+server:
+  port: 8000
+
+spring:
+  config:
+    import:
+      - classpath:/yaml/application-local.yml
+      - classpath:/yaml/application-dev.yml
+  profiles:
+    active: local
+
+  application:
+    name: gateway-service
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user/(?<segment>.*), /$\{segment}
+
+eureka:
+  instance:
+    instance-id: gateway-instance
+  client:
+    fetch-registry: true
+    register-with-eureka: true
