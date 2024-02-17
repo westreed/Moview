@@ -68,6 +68,8 @@ services:
     build: ./user-service
     ports:
       - "64412:64412"
+    environment:
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     networks:
       - ms-network
     deploy:

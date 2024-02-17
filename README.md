@@ -7,12 +7,7 @@
 ## 프로젝트 빌드
 
 1. git clone
-2. 환경변수 등록
-```bash
-# 컴퓨터 환경변수
-MYSQL_PASSWORD=비밀번호
-```
-3. .env 파일 생성 및 변수 등록
+2. .env 파일 생성 및 변수 등록
 ```bash
 # .env
 MYSQL_PASSWORD=비밀번호
